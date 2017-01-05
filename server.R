@@ -1,11 +1,6 @@
 #
-# This is the server logic of a Shiny web application. You can run the 
-# application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
-#
+# This is the server logic of a Shiny web application that predicts diamond price based on a machine learning model. 
+
 
 library(shiny)
 library(ggplot2)
@@ -19,7 +14,7 @@ model_glm <- train(price~carat+cut+color+clarity,
                   data=diamonds,
                   trControl = trainControl(method = "cv", number = 5, verboseIter = TRUE))
 
-# Define server logic required to draw a histogram
+# Define server logic required to compute diamond's price
 shinyServer(function(input, output) {
    
   output$prediction <- renderPrint ({

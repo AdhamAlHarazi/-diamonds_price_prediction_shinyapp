@@ -1,10 +1,4 @@
 #
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-# 
-#    http://shiny.rstudio.com/
 #
 
 library(shiny)
@@ -47,7 +41,7 @@ shinyUI(
        
     ),
     
-    # Show a plot of the generated distribution
+    # Show a textbox of the result
     mainPanel(
       h4('The Diamond predicted price is:'),
       h5(textOutput("prediction")),
