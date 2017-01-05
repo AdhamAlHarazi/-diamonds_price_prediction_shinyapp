@@ -1,0 +1,51 @@
+Diamond Prediction Project Presentation
+========================================================
+author: Adham
+date: January  04, 2017
+autosize: true
+
+Overview
+========================================================
+
+
+The Developled shiny app allows the user to enter the diamond in question properites
+and it then predicts the price of the diamond, the app uses a machine learning model based on glm cross-validated on the diamond dataset obtained from gglplot2
+
+Algorithm
+========================================================
+
+```{r}
+library(caret)
+library(ggplot2)
+data(diamonds)
+
+model_glm <- train(price~carat+cut+color+clarity,
+                  method="glm",
+                  data=diamonds,
+                  trControl = trainControl(method = "cv", number = 5, verboseIter = TRUE))
+```
+
+Model Performance
+========================================================
+
+```{r, echo=FALSE}
+model_glm
+```
+
+
+Deployed Shiny App
+========================================================
+The Shiny App is easy to use (and beautiful), user just enter the properites and they get the predicted price
+
+This is the link:
+https://adham.shinyapps.io/diamonds_price_prediction/
+
+![title](ShinyApp.png)
+
+
+
+
+
+
+
+
