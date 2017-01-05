@@ -17,7 +17,7 @@ model_glm <- train(price~carat+cut+color+clarity,
 # Define server logic required to compute diamond's price
 shinyServer(function(input, output) {
    
-  output$prediction <- renderPrint ({
+  output$prediction <- reactive ({
     
     carat = input$carat
     cut = input$cut
